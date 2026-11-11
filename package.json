@@ -1,0 +1,30 @@
+{
+  "name": "mini-order-processing-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --runInBand tests/api.test.js",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "publisher": "node src/publisher.js",
+    "worker": "node src/workers/order.worker.js",
+    "test:integration": "DB_NAME=order_processing_test jest --runInBand tests/order.integration.test.js",
+    "test:all": "npm run test && npm run test:integration"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bullmq": "^6.7.4",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "ioredis": "^6.0.0",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "jest": "^30.5.2",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.3.2"
+  }
+}
